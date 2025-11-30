@@ -12,9 +12,6 @@ COPY --from=build /app/target/*.jar app.jar
 
 #step 3
 From tomcat:9.0
-COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/*.jar /usr/local/tomcat/webapps/ROOT.jar
 EXPOSE 8080
-
-#EXPOSE 8081
-# Run the jar
-ENTRYPOINT ["java","-jar","app.war"]
+ENTRYPOINT ["java","-jar","app.jar"]
