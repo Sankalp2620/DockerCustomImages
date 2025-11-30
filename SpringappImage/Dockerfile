@@ -10,6 +10,10 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-EXPOSE 8081
+From tomcat:9.0
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+EXPOSE 8080
+
+#EXPOSE 8081
 # Run the jar
 ENTRYPOINT ["java","-jar","app.war"]
