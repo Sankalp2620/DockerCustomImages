@@ -10,6 +10,7 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
+#step 3
 From tomcat:9.0
 COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
