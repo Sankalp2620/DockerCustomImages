@@ -1,1 +1,11 @@
-
+pipeline{
+  agent any
+  Stages{
+    Stage("SCm check out"){
+      steps{
+        git "git checkout"
+      }
+    }
+    
+  }
+}
